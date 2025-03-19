@@ -9,7 +9,7 @@ export const RecipePage = ({ recipe }) => {
       <Box
         width={{ base: "100%", md: "70%", lg: "60%" }}
         minHeight="100%"
-        bg="blue.500"
+        bg="orange.100"
       >
         <Box position="relative" width="100%" height="100px">
           <Box position="absolute" left="2" top="40%">
@@ -37,7 +37,7 @@ export const RecipePage = ({ recipe }) => {
           display="grid"
           columns={{ base: 1, sm: 1, md: 2, lg: 2 }}
         >
-          <Box width="50%">
+          <Box>
             <Text textTransform="uppercase" mb={4}>
               {recipe.mealType}
             </Text>
