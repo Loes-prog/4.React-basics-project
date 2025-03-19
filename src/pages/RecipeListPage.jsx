@@ -2,8 +2,14 @@ import { data } from "../utils/data.js";
 import { Box, Image, Text, SimpleGrid, Heading } from "@chakra-ui/react";
 
 export const RecipeListPage = ({ query, onSelectRecipe }) => {
-  const filteredRecipes = data.hits.filter((hit) =>
-    hit.recipe.label.toLowerCase().includes(query.toLowerCase())
+  const filteredRecipes = data.hits.filter(
+    (hit) =>
+      hit.recipe.label.toLowerCase().includes(query.toLowerCase()) ||
+      hit.recipe.healthLabels.some(
+        (label) =>
+          ["vegan", "vegetarian"].includes(label.toLowerCase()) &&
+          label.toLowerCase().includes(query.toLowerCase())
+      )
   );
 
   return (
@@ -81,12 +87,12 @@ export const RecipeListPage = ({ query, onSelectRecipe }) => {
                       <Text
                         key={index}
                         bg="red.100"
-                        display="inline"
+                        display="inline-block"
                         color="red"
-                        px={1}
-                        py={1}
+                        p={1}
                         borderRadius="md"
-                        mx={1}
+                        m={1}
+                        whiteSpace="nowrap"
                       >
                         {label}
                       </Text>

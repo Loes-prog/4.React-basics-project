@@ -3,7 +3,7 @@ import { Input } from "@chakra-ui/react";
 export const SearchRecipe = ({ query, setQuery }) => {
   return (
     <Input
-      placeholder="Search..."
+      placeholder="Search.."
       value={query}
       onChange={(e) => setQuery(e.target.value)}
       size="lg"
